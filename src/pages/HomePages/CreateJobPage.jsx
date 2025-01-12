@@ -119,7 +119,7 @@ const CreateJobPage = () => {
         <input type="text" name="payment"  value={formData.payment} onChange={handleChange} placeholder="Enter payment amount" />
         <label htmlFor="jobPayment"><FaCamera />Upload Media</label>
         <label className={styles["file-input-label"]}>
-          Click here to choose files
+          Click here to choose a file
           <input type="file" name="media_paths[]" ref={mediaRef} accept="image/*" multiple className={styles["file-input"]} onChange={handleFileChange}/>
         </label>
         {selectedFiles.length > 0 && (
