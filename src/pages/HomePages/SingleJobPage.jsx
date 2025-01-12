@@ -125,10 +125,10 @@ const SingleJobPage = () => {
             <h3>Gallery</h3>
             <div className={styles["media"]}>
                 {
-                    job.media_paths.map( (path, index) => (
+                    job.media_paths.map((url, index) => (
                         <img 
                             key={index}
-                            src={`${import.meta.env.VITE_API_BASE_URL}/storage/${path}`}
+                            src={url}
                             alt={`Job Media ${index + 1}`}
                             className={styles["job-image"]}
                         />
