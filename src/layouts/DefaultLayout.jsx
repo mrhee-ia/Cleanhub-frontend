@@ -8,28 +8,37 @@ import { FaUser, FaHome, FaFileAlt, FaClipboardCheck, FaBell, FaPowerOff, FaBook
 function DefaultLayout() {
 
   const {currentUser, setUser, token, setToken} = useStateContext()
-  const [menuOpen, setMenuOpen] = useState(false);
+  // const [menuOpen, setMenuOpen] = useState(false);
 
   if (!token) {
     return <Navigate to='/join-now' />
   }
 
-  useEffect(() => {
-    if (currentUser.role == 'admin') {
-      return <Navigate to='/admin-panel' />
-    }
-  }, [])
-
-  const onLogout = (event) => {
-    event.preventDefault()
-    axiosClient.post('/logout')
-      .then(() => {
-        setUser({})
-        setToken(null)
-      })
+  if (currentUser.role === 'admin') {
+    return <Navigate to="/admin-panel" />;
   }
 
-  const toggleMenu = () => setMenuOpen((prev) => !prev);
+  // const onLogout = (event) => {
+  //   event.preventDefault()
+  //   axiosClient.post('/logout')
+  //     .then(() => {
+  //       setUser({})
+  //       setToken(null)
+  //     })
+  // }
+
+  const onLogout = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    axiosClient.post('/logout')
+      .then(() => {
+        setUser({});
+        setToken(null);
+      });
+  };
+  
+
+  // const toggleMenu = () => setMenuOpen((prev) => !prev);
 
   return (
     <div className="homepage-container bg-gradient-green">
@@ -44,10 +53,10 @@ function DefaultLayout() {
             <p><i>@{currentUser.user_name}</i></p>
           </div>
         </div>
-        <button className={`toggle-menu ${menuOpen ? 'open' : ''}`} onClick={toggleMenu}>
+        {/* <button className={`toggle-menu ${menuOpen ? 'open' : ''}`} onClick={toggleMenu}>
           {menuOpen ? <FaTimes /> : <FaBars />}
-        </button>
-        <nav className={`h-navigation-links ${menuOpen ? "block" : "hidden"} md:block`}>
+        </button> */}
+        <nav className="h-navigation-links">
           <ul>
             <Link to="/hub/profile" className="h-nav-link"><li><FaUser />Profile</li></Link>
             <Link to="/hub/feed" className="h-nav-link"><li><FaHome />Feed</li></Link>
