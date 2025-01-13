@@ -48,12 +48,13 @@ const NotificationsPage = () => {
               <i>
                 <p className={styles['notif-subtitle']}><FaCircle/><strong>{notification.message}</strong> 
                   {notification.notification_type == 3 && 'You have been selected to work for the job :'}
+                  {notification.notification_type == 2 && 'Your job recruit was denied :'}
                   {notification.notification_type == 1 && 'Your job recruit was posted :'}
                 </p>
               </i>
               <p className={styles['notif-title']}>{notification.job_title}</p>
               <div>
-                <small><Link to={`/hub/jobs/${notification.job_id}`}>Click here to view full job details.</Link></small>
+                {notification.notification_type != 2 && <small><Link to={`/hub/jobs/${notification.job_id}`}>Click here to view full job details.</Link></small>}
                 <small><i>{formatDateTime(notification.created_at)}</i></small>
               </div>
             </div>
