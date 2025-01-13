@@ -21,11 +21,16 @@ const formatDateTime = (dateString) => {
 const NotificationsPage = () => {
 
   const [notifications, setNotifications] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    setLoading(true)
     axiosClient.get('/notifications')
     .then(
-      ({data}) => {setNotifications(data || [])}
+      ({data}) => {
+        setNotifications(data || [])
+        setLoading(false)
+      }
     ).catch((error) => {console.error("Error fetching notifications:", error)})
   }, [])
 
@@ -35,7 +40,7 @@ const NotificationsPage = () => {
         {/* <!-- Welcome Section --> */}
         <PageTitle title="Notifications" subtitle="View notifications to stay updated." />
       </div>
-      {notifications <= 0 && <h1 style={{margin:'20px', color:'white', fontSize:'1.5rem', fontWeight:'600'}}>No new notification.</h1>}
+      {(notifications <= 0 && !loading) && <h1 style={{margin:'20px', color:'white', fontSize:'1.5rem', fontWeight:'600'}}>No new notification.</h1>}
       <div className={style['list-container']}>
         {
           notifications.map((notification) => (
