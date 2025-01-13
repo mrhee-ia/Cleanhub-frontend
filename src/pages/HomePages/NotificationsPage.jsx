@@ -46,7 +46,7 @@ const NotificationsPage = () => {
           notifications.map((notification) => (
             <div className={`${style['jobcard']} ${style['listcard']} ${styles['notif-card']}`} key={notification.id}>
               <i>
-                <p className={styles['notif-subtitle']}><FaCircle/><strong>{notification.message}</strong> 
+                <p className={styles['notif-subtitle']}><strong><FaCircle/>{notification.message}</strong> 
                   {notification.notification_type == 3 && 'You have been selected to work for the job :'}
                   {notification.notification_type == 2 && 'Your job recruit was denied :'}
                   {notification.notification_type == 1 && 'Your job recruit was posted :'}

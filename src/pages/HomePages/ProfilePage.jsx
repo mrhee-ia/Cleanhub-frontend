@@ -122,7 +122,7 @@ const ProfilePage = () => {
               <div key={job.job_id} className={styles['history-list']}>
                 <Link to={`/hub/jobs/${job.job_id}`}>{job.job_title}</Link>
                 <div>
-                  <span><FaUserFriends/> Employer: {job.employer_name}</span>
+                  <span><FaUserFriends/>{job.employer_name}</span>
                   <span><FaMedal/> Rating:
                     {[...Array(Number(job.user_rating))].map((_, index) => (
                       <FaStar className={styles['history-stars']} key={index} />

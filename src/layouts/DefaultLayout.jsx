@@ -8,7 +8,6 @@ import { FaUser, FaHome, FaFileAlt, FaClipboardCheck, FaBell, FaPowerOff, FaBook
 function DefaultLayout() {
 
   const {currentUser, setUser, token, setToken} = useStateContext()
-  // const [menuOpen, setMenuOpen] = useState(false);
 
   if (!token) {
     return <Navigate to='/join-now' />
@@ -36,9 +35,6 @@ function DefaultLayout() {
         setToken(null);
       });
   };
-  
-
-  // const toggleMenu = () => setMenuOpen((prev) => !prev);
 
   return (
     <div className="homepage-container bg-gradient-green">
@@ -53,18 +49,15 @@ function DefaultLayout() {
             <p><i>@{currentUser.user_name}</i></p>
           </div>
         </div>
-        {/* <button className={`toggle-menu ${menuOpen ? 'open' : ''}`} onClick={toggleMenu}>
-          {menuOpen ? <FaTimes /> : <FaBars />}
-        </button> */}
         <nav className="h-navigation-links">
           <ul>
-            <Link to="/hub/profile" className="h-nav-link"><li><FaUser />Profile</li></Link>
-            <Link to="/hub/feed" className="h-nav-link"><li><FaHome />Feed</li></Link>
-            <Link to="/hub/saved-jobs" className="h-nav-link"><li><FaBookmark />Saved Jobs</li></Link>
-            <Link to="/hub/job-applications" className="h-nav-link"><li><FaFileAlt />Job Applications</li></Link>
-            <Link to="/hub/job-posts" className="h-nav-link"><li><FaClipboardCheck />Job Posts</li></Link>
-            <Link to="/hub/notifications" className="h-nav-link"><li><FaBell />Notifications</li></Link>
-            <Link to="/" onClick={onLogout} className="h-nav-link"><li><FaPowerOff />Log Out</li></Link>
+            <Link to="/hub/profile" className="h-nav-link"><li><FaUser /><span>Profile</span></li></Link>
+            <Link to="/hub/feed" className="h-nav-link"><li><FaHome /><span>Feed</span></li></Link>
+            <Link to="/hub/saved-jobs" className="h-nav-link"><li><FaBookmark /><span>Saved Jobs</span></li></Link>
+            <Link to="/hub/job-applications" className="h-nav-link"><li><FaFileAlt /><span>Job Applications</span></li></Link>
+            <Link to="/hub/job-posts" className="h-nav-link"><li><FaClipboardCheck /><span>Job Posts</span></li></Link>
+            <Link to="/hub/notifications" className="h-nav-link"><li><FaBell /><span>Notifications</span></li></Link>
+            <Link to="/" onClick={onLogout} className="h-nav-link"><li><FaPowerOff /><span>Log Out</span></li></Link>
           </ul>
         </nav>
       </aside>

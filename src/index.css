@@ -80,11 +80,11 @@
 
 .h-profile-section h3 {
   font-weight: 600;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .h-profile-section p {
-  font-size: 14px;
+  font-size: 0.8rem;
 }
 
 .h-navigation-links ul {
@@ -110,9 +110,6 @@
 
 .h-navigation-links .h-nav-link:hover li {
   background-color: rgba(5, 52, 25, 0.6);
-}
-
-.h-navigation-links .h-nav-link:hover li {
   color: rgb(255, 255, 255);
 }
 
@@ -164,10 +161,6 @@
     margin: 0 10px 0 0;
   }
 
-  .h-navigation-links {
-    display: none; /* Hide links on medium screens unless toggled */
-  }
-
   .h-main-container {
     width: 100%;
     padding: 10px;
@@ -206,63 +199,74 @@
 }
 
 /*======== MOBILE ==========*/
-@media only screen and (min-width: 350px) and (max-width: 700px) {
+@media only screen and (max-width: 700px) {
   .homepage-container {
     flex-direction: column;
+    height: 100vh;
+    overflow-y: auto;
   }
 
   .h-sidebar {
     width: 100%;
-    height: auto;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
+    height: 26%;
+    padding: 6px;
     border-right: none;
     border-bottom: rgba(204, 204, 204, 0.2) solid 1px;
   }
 
+  .h-website-name h1 {
+    font-size: 1.5rem;
+  }
+
   .h-profile-section {
+    margin: 15px 0;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .h-profile-section > div {
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    margin: 10px 0;
+    align-items: start;
   }
 
   .h-profile-picture {
-    width: 50px;
-    height: 50px;
+    max-width: 50px;
+    max-height: 50px;
+    margin-bottom: 0;
   }
 
   .h-navigation-links {
-    display: none; /* Use a toggle menu for navigation links */
+    margin-top: 10px;
+  }
+
+  .h-navigation-links ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 0.6rem;
+    margin: 0;
+  }
+
+  .h-navigation-links .h-nav-link li {
+    margin: 0;
+    padding: 8px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Hide the text labels */
+  .h-nav-link li > :not(:first-child) {
+    display: none;
   }
 
   .h-main-container {
     width: 100%;
-    padding: 10px;
-  }
-}
-
-/* Toggle button for smaller screens (Optional) */
-.toggle-menu {
-  display: none;
-}
-
-@media only screen and (max-width: 835px) {
-  .toggle-menu {
-    display: block;
-    cursor: pointer;
-    color: white;
-    font-size: 24px;
-    margin: 10px;
-  }
-
-  .h-navigation-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .h-navigation-links ul {
-    flex-direction: column;
+    height: 70%;
+    box-sizing: border-box;
+    overflow-y: auto;
   }
 }
