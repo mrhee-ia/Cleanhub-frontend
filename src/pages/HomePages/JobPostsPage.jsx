@@ -9,11 +9,14 @@ import { FaPlus } from 'react-icons/fa'
 const JobPostsPage = () => {
 
   const [jobs, setJobs] = useState([]);
+    const [loading, setLoading] = useState(true)
 
   useEffect( () => {
+    setLoading(true)
     axiosClient.get('jobs/user-posts')
       .then((response) => {
         setJobs(response.data)
+        setLoading(false)
       }).catch((error) => {
         console.error('Error fetching user job posts:', error);
       })
@@ -30,6 +33,7 @@ const JobPostsPage = () => {
           </div>
         </section>
       </div>
+      {(jobs <= 0 && !loading) && <h1 style={{margin:'20px', color:'white', fontSize:'1.5rem', fontWeight:'600'}}>Nothing has been posted yet.</h1>}
       <ListsContainer jobs={jobs} postPage={true}/>
     </>  
   )
