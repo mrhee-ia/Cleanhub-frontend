@@ -569,12 +569,13 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin-top: 2rem;
     }
   
     .profile-info,
     .profile-about,
     .profile-history {
-      width: 70%;
+      width: 90%;
     }
   
     .job-details {
@@ -587,7 +588,7 @@
       display: flex;
       justify-content: space-between;
     }
-  }
+}
 
 
 @media only screen and (min-width: 700px) and (max-width: 835px) {
@@ -595,27 +596,50 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin-top: 0.5rem;
     }
   
     .profile-info,
     .profile-about,
     .profile-history {
-      width: 80%;
+      width: 95%;
     }
   
+    .header-section {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        font-size: 70%;
+        align-items: start;
+    }
+
+    .search-bar-section {
+      width: 100%;
+    }
+
+    .filter-button :first-child {
+        font-size: 150%;
+    }
+
     .job-categories-section ul {
-      justify-content: space-around;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        overflow-x: auto;
+        text-wrap: nowrap;
     }
-  
-    .job-details {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
+
+    .notif-subtitle {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 0.2rem;
     }
-  }
+
+}
 
 
-  @media only screen and (min-width: 350px) and (max-width: 700px) {
+@media only screen and (min-width: 350px) and (max-width: 700px) {
     .profile-page {
       display: flex;
       flex-direction: column;
@@ -704,4 +728,4 @@
         align-items: start;
         gap: 0.2rem;
     }
-  }
+}

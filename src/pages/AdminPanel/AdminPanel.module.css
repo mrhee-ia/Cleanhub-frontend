@@ -66,4 +66,11 @@
     align-items: center;
     gap: 0.5rem;
 }
+
+@media only screen and (min-width: 350px) and (max-width: 700px) {
+
+    .approveButton, .denyButton {
+        margin: 0.4rem 0;
+    }
+}
   
