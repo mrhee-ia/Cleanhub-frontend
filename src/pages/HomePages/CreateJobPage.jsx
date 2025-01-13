@@ -58,15 +58,14 @@ const CreateJobPage = () => {
     payload.append('schedule', formData.schedule);
     payload.append('payment', formData.payment);
 
-    selectedFiles.forEach((file) => {
-      payload.append('media_paths[]', file);
-    });
+    // selectedFiles.forEach((file) => {
+    //   payload.append('media_paths[]', file);
+    // });
 
     // post to the server
     axiosClient.post('/jobs/store', payload, {
       headers: { 'Content-Type': 'multipart/form-data' }
     }).then((response) => {
-      alert(response.data.message);
       navigate('/hub/job-posts');
     }).catch((error) => {
       console.error('Error posting job:', error.response?.data || error.message);
@@ -116,7 +115,7 @@ const CreateJobPage = () => {
         <input type="text" name="schedule" value={formData.schedule} onChange={handleChange} placeholder="e.g., January 1, 2025 9:00 AM - 5:00 PM" />
         <label htmlFor="jobPayment"><FaRegMoneyBillAlt />Job Payment</label>
         <input type="text" name="payment"  value={formData.payment} onChange={handleChange} placeholder="Enter payment amount" />
-        <label htmlFor="jobPayment"><FaCamera />Upload Media</label>
+        {/* <label htmlFor="jobPayment"><FaCamera />Upload Media</label>
         <label className={styles["file-input-label"]}>
           Click here to choose a file
           <input type="file" name="media_paths[]" ref={mediaRef} accept="image/*" multiple className={styles["file-input"]} onChange={handleFileChange}/>
@@ -127,7 +126,7 @@ const CreateJobPage = () => {
               <li className={styles['file-name']} key={index}>{file.name}</li>
             ))}
           </ul>
-        )}
+        )} */}
         <div>
           <Link to='/hub/job-posts' className={styles["cancel-btn"]}><FaTimes />Cancel</Link>
           <button type="submit" name='post-job-btn'>Post Job</button>

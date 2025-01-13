@@ -115,7 +115,7 @@ const ProfilePage = () => {
       </div>
       <div className={styles['profile-history']}>
         <h3>Job History</h3>
-        {(jobHistory <= 0 && !loading) && <h1 style={{margin:'20px', color:'white', fontSize:'1.5rem', fontWeight:'600'}}>You haven't applied to any job yet.</h1>}
+        {(jobHistory <= 0 && !loading) && <h1 style={{margin:'20px', color:'white', fontSize:'1rem', fontWeight:'500'}}>You have no job history.</h1>}
         {jobHistory.length > 0 && (
           <div className={styles['history-list-container']}>
             {jobHistory.map((job) => (
