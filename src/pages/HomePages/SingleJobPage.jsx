@@ -121,7 +121,7 @@ const SingleJobPage = () => {
                 <p className={styles["job-payment"]}>{job.payment}</p>
             </div>
         </div>
-        <div className={styles["job-media"]}>
+        {/* <div className={styles["job-media"]}>
             <h3>Gallery</h3>
             <div className={styles["media"]}>
                 {
@@ -135,7 +135,7 @@ const SingleJobPage = () => {
                     ))
                 }
             </div>
-        </div>
+        </div> */}
 
         {/* <!-- Action Buttons --> */}
         <h3>Actions</h3>
