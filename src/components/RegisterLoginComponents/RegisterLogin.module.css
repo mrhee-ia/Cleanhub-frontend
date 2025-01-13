@@ -247,9 +247,9 @@
 }
 
 /*========MOBILE==========*/
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 700px){
     .container {
-        width: 310px;
+        width: 320px;
         max-width: 100%;
         min-height: 600px;
     }
@@ -258,7 +258,7 @@
         margin-bottom: 6px;
     }
     .sign-in, .sign-up {
-        width: 75%;
+        width: 80%;
     }
     .sign-up form {
         padding: 0 1rem;
@@ -282,16 +282,16 @@
         transform: rotate(360deg);
     }
     .toggle-container {
-        left: 75%;
-        width: 25%;
+        left: 80%;
+        width: 20%;
         border-radius: 115px 0 0 75px;
     }
     .container.active .toggle-container {
-        transform: translateX(-300%);
+        transform: translateX(-400%);
         border-radius: 0 115px 75px 0;
     }
     .container.active .sign-up {
-        transform: translateX(33.2%);
+        transform: translateX(25%);
     }
     .toggle-container button.hidden:hover {
         background-color: transparent;
