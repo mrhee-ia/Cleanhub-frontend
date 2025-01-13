@@ -16,15 +16,18 @@ const ProfilePage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [updatedData, setUpdatedData] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axiosClient.get('/user')
       .then(({data}) => {
         setUser(data)
       })
+    setLoading(true)
     axiosClient.get('/history')
       .then(({data}) => {
         setJobHistory(data)
+        setLoading(false);
       })
   }, [])
 
@@ -112,6 +115,7 @@ const ProfilePage = () => {
       </div>
       <div className={styles['profile-history']}>
         <h3>Job History</h3>
+        {(jobHistory <= 0 && !loading) && <h1 style={{margin:'20px', color:'white', fontSize:'1.5rem', fontWeight:'600'}}>You haven't applied to any job yet.</h1>}
         {jobHistory.length > 0 && (
           <div className={styles['history-list-container']}>
             {jobHistory.map((job) => (
