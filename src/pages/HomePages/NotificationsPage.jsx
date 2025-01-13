@@ -29,16 +29,13 @@ const NotificationsPage = () => {
     ).catch((error) => {console.error("Error fetching notifications:", error)})
   }, [])
 
-  if (notifications <= 0) {
-    return <h1 style={{margin:'20px', color:'white', fontSize:'1.5rem', fontWeight:'600'}}>No new notification.</h1>;
-  }
-
   return (
     <>
       <div className={styles["header-section"]}>
         {/* <!-- Welcome Section --> */}
         <PageTitle title="Notifications" subtitle="View notifications to stay updated." />
       </div>
+      {notifications <= 0 && <h1 style={{margin:'20px', color:'white', fontSize:'1.5rem', fontWeight:'600'}}>No new notification.</h1>}
       <div className={style['list-container']}>
         {
           notifications.map((notification) => (

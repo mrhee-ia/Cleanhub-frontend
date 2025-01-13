@@ -19,8 +19,6 @@ const JobPostsPage = () => {
       })
   }, [])
 
-  if (loading) return <h1 style={{margin:'20px', color:'white', fontSize:'1.5rem', fontWeight:'600'}}>Loading...</h1>
-
   return (
     <>
       <div className={styles["header-section"]}>
