@@ -66,6 +66,7 @@ const CreateJobPage = () => {
     axiosClient.post('/jobs/store', payload, {
       headers: { 'Content-Type': 'multipart/form-data' }
     }).then((response) => {
+      alert(response.data.message)
       navigate('/hub/job-posts');
     }).catch((error) => {
       console.error('Error posting job:', error.response?.data || error.message);
